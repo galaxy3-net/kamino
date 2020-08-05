@@ -80,13 +80,10 @@ Vagrant.configure("2") do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
-  config.vm.synced_folder ".", "/vagrant", disabled: true
-#  config.vm.synced_folder "../../.keys", "/home/vagrant/.ssh"
-#  config.vm.synced_folder "../../ansible", "/ansible"
-  config.vm.synced_folder "../../../repos", "/repos"
-  config.vm.synced_folder "../../../Downloads", "/Downloads"
-#  config.vm.synced_folder	"../../../bind",	"/bind"
-  config.vm.synced_folder	"../../",	"/vagrant"
+  config.vm.synced_folder	"../../bind",	"/bind", owner: "2001", group: "2001", create: true
+  config.vm.synced_folder	"../../",	"/vagrant", owner: "2001", group: "2001"
+  config.vm.synced_folder "../../repos", "/repos", owner: "2001", group: "2001", create: true
+  config.vm.synced_folder "../../Downloads", "/Downloads", owner: "2001", group: "2001", create: true
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:

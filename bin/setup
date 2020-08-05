@@ -10,6 +10,7 @@ sudo mount /dev/cdrom /media/cdrom
 sudo sh /media/cdrom/VBoxLinuxAdditions.run
 
 useradd vagrant -m -s /bin/bash
+printf 'vagrant\nvagrant' | sudo passwd vagrant
 
 sudo su - vagrant -c "ssh-keygen -f ~/.ssh/id_vagrant -N ''"
 
