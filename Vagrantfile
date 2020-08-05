@@ -72,7 +72,7 @@ Vagrant.configure("2") do |config|
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
   # your network.
-   config.vm.network "public_network"
+  # config.vm.network "public_network"
 #  config.vm.network "public_network", :bridge => "enp1s0f0", :use_dhcp_assigned_default_route => true
 
   # Share an additional folder to the guest VM. The first argument is
@@ -98,9 +98,9 @@ Vagrant.configure("2") do |config|
      vb.cpus = "4"
 
 	 vb.customize ['modifyvm', :id, '--nictype0', 'virtio']
-     vb.customize ['modifyvm', :id, '--nictype1', 'virtio']
+#     vb.customize ['modifyvm', :id, '--nictype1', 'virtio']
 #     vb.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
-     vb.customize ['modifyvm', :id, '--nictype2', 'virtio']
+#     vb.customize ['modifyvm', :id, '--nictype2', 'virtio']
 #     vb.customize ['modifyvm', :id, '--nicpromisc2', 'allow-all']
 
    end
