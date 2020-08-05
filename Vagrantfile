@@ -114,13 +114,16 @@ Vagrant.configure("2") do |config|
   # documentation for more information about their specific syntax and use.
    config.vm.provision "shell", inline: <<-SHELL
      apt-get update
-     apt-get install -yq apache2 make docker docker.io
+     apt-get autoremove -y
+     apt-get install -yq apache2 make docker docker.io net-tools ansible dos2unix supervisor htop
      apt-get clean
      apt-get auto-clean
      file /vagrant/functions/ready | grep CRLF && dos2unix -n /vagrant/functions/ready /usr/local/bin/ready
      file /vagrant/functions/ready | grep CRLF || cp /vagrant/functions/ready /usr/local/bin/ready
      chmod 0700 /usr/local/bin/ready
      ready
+
+     /vagrant/bin/g3common
 
      pull_repos
      rm /etc/resolv.conf
