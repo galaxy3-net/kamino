@@ -22,10 +22,17 @@ sudo dd if=/dev/zero of=/erase_me bs=100M || sudo rm erase_me
 
 cat <<__EOD__ > /etc/init.d/setip
 #!/usr/bin/bash
+
   exec >> /var/log/S99setip.log
   exec 2>&1
+
+
+function setip () {
+  ifconfig eth0 10.0.2.15  netmask 255.255.255.0
+  route add default gw 10.0.2.2
+}
   date
-  ifconfig eth0 | egrep '192.168.' || ifconfig eth0 10.0.2.15  netmask 255.255.255.0
+  ifconfig eth0 | egrep 'inet' || setip
   ip addr
 __EOD__
 
