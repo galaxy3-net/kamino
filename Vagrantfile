@@ -81,11 +81,11 @@ Vagrant.configure("2") do |config|
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
   config.vm.synced_folder ".", "/vagrant", disabled: true
-  config.vm.synced_folder "../../.keys", "/home/vagrant/.ssh"
-  config.vm.synced_folder "../../ansible", "/ansible"
+#  config.vm.synced_folder "../../.keys", "/home/vagrant/.ssh"
+#  config.vm.synced_folder "../../ansible", "/ansible"
   config.vm.synced_folder "../../../repos", "/repos"
   config.vm.synced_folder "../../../Downloads", "/Downloads"
-  config.vm.synced_folder	"../../../bind",	"/bind"
+#  config.vm.synced_folder	"../../../bind",	"/bind"
   config.vm.synced_folder	"../../",	"/vagrant"
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -96,7 +96,7 @@ Vagrant.configure("2") do |config|
 #    vb.gui = true
   
      # Customize the amount of memory on the VM:
-     vb.name = "Kamino"
+     vb.name = "Kamino (Kali)"
      vb.memory = "4096"
      vb.cpus = "4"
      vb.customize ['modifyvm', :id, '--nictype0', 'virtio']
