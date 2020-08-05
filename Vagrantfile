@@ -99,7 +99,7 @@ Vagrant.configure("2") do |config|
      vb.cpus = "4"
 
 #	 vb.customize ['modifyvm', :id, '--nictype0', 'virtio']
-     vb.customize ['modifyvm', :id, '--nictype1', 'virtio']
+#     vb.customize ['modifyvm', :id, '--nictype1', 'virtio']
 #     vb.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
 #     vb.customize ['modifyvm', :id, '--nictype2', 'virtio']
 #     vb.customize ['modifyvm', :id, '--nicpromisc2', 'allow-all']
