@@ -13,7 +13,8 @@ Vagrant.configure("2") do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
   #config.vm.box = "file:///home/korben/kali/package.box"
-  config.vm.box = "galaxy3/kamino"
+  config.vm.box = "file:///Users/korbenkirscht/repositories/github/galaxy3/kamino/package.box"
+  #config.vm.box = "galaxy3/kamino"
   config.vm.hostname = "kamino"
 #  config.ssh.forward_agent = "true" 
 #  ssh_info_public = "true"

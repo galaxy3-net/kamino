@@ -19,3 +19,16 @@ sudo su - vagrant -c "curl -o ~/.ssh/authorized_keys https://raw.githubuserconte
 sudo su - -c "echo 'vagrant ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/vagrant"
 
 sudo dd if=/dev/zero of=/erase_me bs=100M || sudo rm erase_me
+
+cat <<__EOD__ > /etc/init.d/setip
+
+  exec >> /var/log/S99setip.log
+  exec 2>&1
+  date
+  ifconfig eth0 10.0.2.15  netmask 255.255.255.0
+  ip addr
+__EOD__
+
+chmod u+x /etc/init.d/setip
+
+ln -s /etc/init.d/setip /etc/rc3.d/S99setip
