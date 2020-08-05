@@ -126,8 +126,8 @@ Vagrant.configure("2") do |config|
      /vagrant/bin/g3common
 
      pull_repos
-     rm /etc/resolv.conf
-     cp /vagrant/resolv.conf /etc/resolv.conf
-     . /ansible/bin/key_setup.sh
+#     rm /etc/resolv.conf
+#     cp /vagrant/resolv.conf /etc/resolv.conf
+#     . /ansible/bin/key_setup.sh
 SHELL
 end
