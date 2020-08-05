@@ -21,7 +21,7 @@ sudo su - -c "echo 'vagrant ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/vagrant"
 sudo dd if=/dev/zero of=/erase_me bs=100M || sudo rm erase_me
 
 cat <<__EOD__ > /etc/init.d/setip
-
+#!/usr/bin/bash
   exec >> /var/log/S99setip.log
   exec 2>&1
   date
