@@ -12,8 +12,8 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  config.vm.box = "file:///home/korben/kali/package.box"
-#  config.vm.box = "kirscht/lab15"
+  #config.vm.box = "file:///home/korben/kali/package.box"
+  config.vm.box = "galaxy3/kamino"
   config.vm.hostname = "kamino"
 #  config.ssh.forward_agent = "true" 
 #  ssh_info_public = "true"
@@ -118,6 +118,14 @@ Vagrant.configure("2") do |config|
    config.vm.provision "shell", inline: <<-SHELL
      apt-get update
      apt-get install -yq apache2 make docker docker.io
+     apt-get clean
+     apt-get auto-clean
+     file /vagrant/functions/ready | grep CRLF && dos2unix -n /vagrant/functions/ready /usr/local/bin/ready
+     file /vagrant/functions/ready | grep CRLF || cp /vagrant/functions/ready /usr/local/bin/ready
+     chmod 0700 /usr/local/bin/ready
+     ready
+
+     pull_repos
      rm /etc/resolv.conf
      cp /vagrant/resolv.conf /etc/resolv.conf
      . /ansible/bin/key_setup.sh
