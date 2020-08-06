@@ -98,7 +98,6 @@ Vagrant.configure("2") do |config|
      vb.memory = "4096"
      vb.cpus = "4"
 
-	 vb.customize ['modifyvm', :id, '--nictype0', 'virtio']
      vb.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
      vb.customize ['modifyvm', :id, '--nictype1', 'virtio']
      vb.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
@@ -114,22 +113,10 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
    config.vm.provision "shell", inline: <<-SHELL
-   exit
-     apt-get update
-     apt-get autoremove -y
-     apt-get install -yq apache2 make docker docker.io net-tools ansible dos2unix supervisor htop
-     apt-get clean
-     apt-get auto-clean
-     file /vagrant/functions/ready | grep CRLF && dos2unix -n /vagrant/functions/ready /usr/local/bin/ready
-     file /vagrant/functions/ready | grep CRLF || cp /vagrant/functions/ready /usr/local/bin/ready
-     chmod 0700 /usr/local/bin/ready
-     ready
-
+     tr -d '\r' < /vagrant/functions/ready >/usr/local/bin/ready && chmod 0700 /usr/local/bin/ready
+     /usr/local/bin/ready
+     /usr/local/bin/install_pkgs
      /vagrant/bin/g3common
-
-     pull_repos
-#     rm /etc/resolv.conf
-#     cp /vagrant/resolv.conf /etc/resolv.conf
-#     . /ansible/bin/key_setup.sh
+     /usr/local/bin/pull_repos
 SHELL
 end
