@@ -118,5 +118,7 @@ Vagrant.configure("2") do |config|
      /usr/local/bin/install_pkgs
      /vagrant/bin/g3common
      /usr/local/bin/pull_repos
+     setup_xrdp
+     setup_vnc
 SHELL
 end
