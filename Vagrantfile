@@ -119,6 +119,6 @@ Vagrant.configure("2") do |config|
      /vagrant/bin/g3common
      /usr/local/bin/pull_repos
      setup_xrdp
-     setup_vnc
+     #setup_vnc
 SHELL
 end
