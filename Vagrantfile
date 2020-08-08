@@ -1,6 +1,18 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+require 'yaml'
+
+current_dir    = File.dirname(File.expand_path(__FILE__))
+configs        = YAML.load_file("#{current_dir}/config.yaml")
+g3home		   = ENV['G3HOME']
+g3_config	   = YAML.load_file("#{g3home}/g3.yaml")
+g3branch         = ENV['G3BRANCH']
+vagrant_config = configs['configs'][g3branch]
+
+thedr_userid = g3_config['g3'][g3branch]['userid']
+thedr_groupid = g3_config['g3'][g3branch]['groupid']
+
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
 # configures the configuration version (we support older styles for
 # backwards compatibility). Please don't change it unless you know what
@@ -45,7 +57,7 @@ Vagrant.configure("2") do |config|
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
   # config.vm.network "private_network", ip: "192.168.33.10"
-  config.vm.network "private_network", ip: "10.55.55.4"
+  config.vm.network "private_network", ip: vagrant_config['private_ip']
   #config.vm.network "public_network", auto_config: false
   #config.vm.network "forwarded_port", guest: 22, host: 5222, host_ip: "10.0.2.15"
 
@@ -81,10 +93,10 @@ Vagrant.configure("2") do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
-  config.vm.synced_folder	"../../bind",	"/bind", owner: "2001", group: "2001", create: true
-  config.vm.synced_folder	"../../",	"/vagrant", owner: "2001", group: "2001"
-  config.vm.synced_folder "../../repos", "/repos", owner: "2001", group: "2001", create: true
-  config.vm.synced_folder "../../Downloads", "/Downloads", owner: "2001", group: "2001", create: true
+  config.vm.synced_folder	"../../bind",	"/bind", owner: thedr_userid, group: thedr_groupid, create: true
+  config.vm.synced_folder	"../../",	"/vagrant", owner: thedr_userid, group: thedr_groupid"
+  config.vm.synced_folder "../../repos", "/repos", owner: thedr_userid, group: thedr_groupid, create: true
+  config.vm.synced_folder "../../Downloads", "/Downloads", owner: thedr_userid, group: thedr_groupid, create: true
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
@@ -95,8 +107,8 @@ Vagrant.configure("2") do |config|
   
      # Customize the amount of memory on the VM:
      vb.name = "Kamino (Kali)"
-     vb.memory = "4096"
-     vb.cpus = "4"
+     vb.memory = vagrant_config['virtualbox']['memory']
+     vb.cpus = vagrant_config['virtualbox']['cpus']
 
      vb.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
      vb.customize ['modifyvm', :id, '--nictype1', 'virtio']
