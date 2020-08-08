@@ -9,6 +9,8 @@ configs:
     virtualbox:
       cpus: 4
       memory: 4096
+    vagrant:
+      box: galaxy3/kamino
     description: |
       Naboo (ucibox)
       =====================================================
