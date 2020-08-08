@@ -10,7 +10,7 @@ configs:
       cpus: 4
       memory: 4096
     vagrant:
-      box: galaxy3/kamino
+      box: file:///Users/korbenkirscht/repositories/github/galaxy3/kamino/package.box
     description: |
       Naboo (ucibox)
       =====================================================
