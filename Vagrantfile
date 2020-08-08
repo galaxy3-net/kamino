@@ -94,7 +94,7 @@ Vagrant.configure("2") do |config|
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
   config.vm.synced_folder	"../../bind",	"/bind", owner: thedr_userid, group: thedr_groupid, create: true
-  config.vm.synced_folder	"../../",	"/vagrant", owner: thedr_userid, group: thedr_groupid"
+  config.vm.synced_folder	"../../",	"/vagrant", owner: thedr_userid, group: thedr_groupid
   config.vm.synced_folder "../../repos", "/repos", owner: thedr_userid, group: thedr_groupid, create: true
   config.vm.synced_folder "../../Downloads", "/Downloads", owner: thedr_userid, group: thedr_groupid, create: true
   # Provider-specific configuration so you can fine-tune various
