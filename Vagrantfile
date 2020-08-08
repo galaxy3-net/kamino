@@ -58,7 +58,7 @@ Vagrant.configure("2") do |config|
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
   # config.vm.network "private_network", ip: "192.168.33.10"
-  config.vm.network "private_network", ip: vagrant_config['private_ip']
+  config.vm.network "private_network", ip: "10.55.55.4"
   #config.vm.network "public_network", auto_config: false
   #config.vm.network "forwarded_port", guest: 22, host: 5222, host_ip: "10.0.2.15"
 
