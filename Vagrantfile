@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "kamino"
 
   #config.vm.network "private_network", ip: "10.55.55.9"
-  config.vm.network "private_network", ip: "10.55.55.4"
+  #config.vm.network "private_network", ip: "10.55.55.4"
 
   config.vm.synced_folder	"../../bind",	"/bind", owner: thedr_userid, group: thedr_groupid, create: true
   config.vm.synced_folder	"../../",	"/vagrant", owner: thedr_userid, group: thedr_groupid
