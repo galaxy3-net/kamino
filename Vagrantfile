@@ -108,8 +108,8 @@ Vagrant.configure("2") do |config|
   
      # Customize the amount of memory on the VM:
      vb.name = "Kamino (Kali)"
-     vb.memory = vagrant_config['virtualbox']['memory']
-     vb.cpus = vagrant_config['virtualbox']['cpus']
+     vb.memory = 4096 # vagrant_config['virtualbox']['memory']
+     vb.cpus = 4 # vagrant_config['virtualbox']['cpus']
 
      vb.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
      vb.customize ['modifyvm', :id, '--nictype1', 'virtio']
