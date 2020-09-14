@@ -34,7 +34,7 @@ Vagrant.configure("2") do |config|
     # vb.memory = "2048" # 2Gb
     # vb.memory = "4096" # 4Gb
     vb.name = "Kamino (Kali)"
-     vb.gui = false
+    vb.gui = true
     vb.cpus = "4"
     vb.memory = "4096"
     vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
