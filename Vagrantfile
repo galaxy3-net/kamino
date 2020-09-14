@@ -27,7 +27,7 @@ Vagrant.configure("2") do |config|
   #config.vm.box = "file:///home/korben/kali/package.box"
   #config.vm.box = "file:///Users/korbenkirscht/repositories/github/galaxy3/kamino/package.box"
   #config.vm.box = "galaxy3/kamino"
-  config.vm.box = kalilinux/rolling  # vagrant_config['vagrant']['box']
+  config.vm.box = "kalilinux/rolling"  # vagrant_config['vagrant']['box']
   config.vm.hostname = "kamino"
 #  config.ssh.forward_agent = "true" 
 #  ssh_info_public = "true"
