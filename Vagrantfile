@@ -10,8 +10,8 @@
 #g3branch         = ENV['G3BRANCH']
 #vagrant_config = configs['configs'][g3branch]
 
-#thedr_userid = g3_config['g3'][g3branch]['userid']
-#thedr_groupid = g3_config['g3'][g3branch]['groupid']
+thedr_userid = g3_config['g3'][g3branch]['userid']
+thedr_groupid = g3_config['g3'][g3branch]['groupid']
 
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
 # configures the configuration version (we support older styles for
