@@ -6,7 +6,7 @@
 #current_dir    = File.dirname(File.expand_path(__FILE__))
 #configs        = YAML.load_file("#{current_dir}/config.yaml")
 #g3home		   = ENV['G3HOME']
-#g3_config	   = YAML.load_file("#{g3home}/g3.yaml")
+g3_config	   = YAML.load_file("#{g3home}/g3.yaml")
 #g3branch         = ENV['G3BRANCH']
 #vagrant_config = configs['configs'][g3branch]
 
