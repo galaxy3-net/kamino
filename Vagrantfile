@@ -37,7 +37,7 @@ Vagrant.configure("2") do |config|
     vb.gui = true
     vb.cpus = "4"
     vb.memory = "8192"
-    vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
+    #vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
 
     vb.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
     vb.customize ['modifyvm', :id, '--nictype1', 'virtio']
