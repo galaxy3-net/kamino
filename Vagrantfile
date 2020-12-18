@@ -35,6 +35,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "file", source: "../../functions", destination: "functions/bin"
   config.vm.provision "file", source: "hosts", destination: "hosts"
   config.vm.provision "file", source: "requirements.yml", destination: "requirements.yml"
+  config.vm.provision "file", source: "ansible", destination: "roles/ansible"
 
   config.vm.provider "virtualbox" do |vb|
     # Display the VirtualBox GUI when booting the machine
