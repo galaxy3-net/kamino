@@ -26,6 +26,11 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 3389, host: 55044, host_ip: "127.0.0.1", auto_correct: true
   config.vm.network "forwarded_port", guest: 22, host: 55041, host_ip: "127.0.0.1", auto_correct: true
 
+  config.vm.provision "file", source: "playbook.yml", destination: "playbook.yml"
+  config.vm.provision "file", source: "../../functions", destination: "functions/bin"
+  config.vm.provision "file", source: "hosts", destination: "hosts"
+  config.vm.provision "file", source: "requirements.yml", destination: "requirements.yml"
+
   config.vm.provider "virtualbox" do |vb|
     # Display the VirtualBox GUI when booting the machine
     # Uncomment ONE the lines below to control how much RAM Vagrant gives the VM
