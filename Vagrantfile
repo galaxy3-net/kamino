@@ -11,6 +11,11 @@ Vagrant.configure("2") do |config|
   #config.vm.network "private_network", ip: "10.55.55.9"
   #config.vm.network "private_network", ip: "10.55.55.4"
 
+  config.vbguest.auto_update = false
+
+  config.ssh.insert_key = false
+  config.ssh.connect_timeout = 20
+
   config.vm.synced_folder	"../../bind",	"/bind", owner: thedr_userid, group: thedr_groupid, create: true
   config.vm.synced_folder	"../../",	"/vagrant", owner: thedr_userid, group: thedr_groupid
   config.vm.synced_folder "../../repos", "/repos", owner: thedr_userid, group: thedr_groupid, create: true
@@ -66,7 +71,7 @@ Vagrant.configure("2") do |config|
 SHELL
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "playbook.yml"
-    ansible.galaxy_role_file = "/home/vagrant/requirements.yml"
+    ansible.galaxy_role_file = "requirements.yml"
     inventory_path = "/home/vagrant/hosts"
   end
 end
