@@ -7,7 +7,7 @@ thedr_groupid = "2001"
 Vagrant.configure("2") do |config|
   config.vm.box = "kalilinux/rolling"
   config.vm.hostname = "kamino"
-  config.vm.version = "2020.4.0"
+  config.vm.box_version = "2020.4.0"
 
   #config.vm.network "private_network", ip: "10.55.55.9"
   #config.vm.network "private_network", ip: "10.55.55.4"
