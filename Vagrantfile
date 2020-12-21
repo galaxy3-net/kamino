@@ -26,10 +26,12 @@ Vagrant.configure("2") do |config|
 #  config.vm.synced_folder "../../Downloads", "/Downloads", owner: "2001", group: "2001", create: true
 #  #config.vm.synced_folder "../../log/nakadia", "/var/log/", owner: "2001", group: "2001", create: true
 
-  config.vm.network "forwarded_port", guest: 5901, host: 55042, host_ip: "127.0.0.1", auto_correct: true
-  config.vm.network "forwarded_port", guest: 5902, host: 55043, host_ip: "127.0.0.1", auto_correct: true
-  config.vm.network "forwarded_port", guest: 3389, host: 55044, host_ip: "127.0.0.1", auto_correct: true
-  config.vm.network "forwarded_port", guest: 22, host: 55041, host_ip: "127.0.0.1", auto_correct: true
+  config.vm.network "forwarded_port", guest: 5901, host: 24901, host_ip: "127.0.0.1", auto_correct: true
+  config.vm.network "forwarded_port", guest: 5902, host: 24902, host_ip: "127.0.0.1", auto_correct: true
+  config.vm.network "forwarded_port", guest: 3389, host: 24389, host_ip: "127.0.0.1", auto_correct: true
+  config.vm.network "forwarded_port", guest: 22, host: 24022, host_ip: "127.0.0.1", auto_correct: true
+  config.vm.network "forwarded_port", guest: 80, host: 24080, host_ip: "127.0.0.1", auto_correct: true
+  config.vm.network "forwarded_port", guest: 8080, host: 24880, host_ip: "127.0.0.1", auto_correct: true
 
   config.vm.provision "file", source: "playbook.yml", destination: "playbook.yml"
   config.vm.provision "file", source: "../../functions", destination: "functions/bin"
