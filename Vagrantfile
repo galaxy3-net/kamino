@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "kamino"
   config.vm.box_version = "2020.4.0"
 
-  #config.vm.network "private_network", ip: "10.55.55.9"
+  config.vm.network "private_network", ip: "10.55.55.9"
   #config.vm.network "private_network", ip: "10.55.55.4"
 
   config.vbguest.auto_update = false
