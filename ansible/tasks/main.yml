@@ -35,3 +35,9 @@
     name: xrdp
     groups: ssl-cert
   become: yes
+
+- name: Restart XRDP
+  become: yes
+  service:
+    name: xrdp
+    state: started
