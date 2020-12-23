@@ -30,7 +30,7 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 22, host: 2200, id: "ssh", disabled: true
   config.vm.network "forwarded_port", guest: 5901, host: 24901, host_ip: "127.0.0.1", auto_correct: true
   config.vm.network "forwarded_port", guest: 5902, host: 24902, host_ip: "127.0.0.1", auto_correct: true
-  config.vm.network "forwarded_port", guest: 3389, host: 24389, host_ip: "127.0.0.1", auto_correct: true
+  config.vm.network "forwarded_port", guest: 3389, host: 20389, host_ip: "127.0.0.1", auto_correct: true
   config.vm.network "forwarded_port", guest: 22, host: 24022, host_ip: "0.0.0.0", auto_correct: true
   config.vm.network "forwarded_port", guest: 80, host: 24080, host_ip: "127.0.0.1", auto_correct: true
   config.vm.network "forwarded_port", guest: 8080, host: 24880, host_ip: "127.0.0.1", auto_correct: true
