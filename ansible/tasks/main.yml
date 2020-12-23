@@ -22,8 +22,10 @@
 - name: Create xrdp group
   group:
     name: xrdp
+  become: yes
 
 - name: Add XRDP to ssl-cert group
   user:
     name: xrdp
     groups: ssl-cert
+  become: yes
