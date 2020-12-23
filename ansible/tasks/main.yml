@@ -19,6 +19,12 @@
 #    home: /thedr
 #  become: yes
 
+- name: Install XRDP
+  apt:
+    name: xrdp
+    state: present
+  become: yes
+
 - name: Create xrdp group
   group:
     name: xrdp
