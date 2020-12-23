@@ -10,11 +10,20 @@
 #  become: yes
 
 #
-- name: Create theDr
+#- name: Create theDr
+#  user:
+#    name: thedr
+#    uid: 2001
+#    shell: /bin/bash
+#    comment: "Master of the Universe"
+#    home: /thedr
+#  become: yes
+
+- name: Create xrdp group
+  group:
+    name: xrdp
+
+- name: Add XRDP to ssl-cert group
   user:
-    name: thedr
-    uid: 2001
-    shell: /bin/bash
-    comment: "Master of the Universe"
-    home: /thedr
-  become: yes
+    name: xrdp
+    groups: ssl-cert
