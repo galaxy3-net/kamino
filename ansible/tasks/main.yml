@@ -19,12 +19,20 @@
 #    home: /thedr
 #  become: yes
 
-- name: Install XRDP
+- name: Install Packages
   apt:
     name: "{{ item }}"
     state: present
   loop: "{{ pkgs }}"
   become: yes
+
+- name: Install Deb Packages
+  apt:
+    deb: "{{ item }}"
+    state: present
+  loop: "{{ deb_pkgs }}"
+  become: yes
+
 
 - name: Create xrdp group
   group:
@@ -59,6 +67,6 @@
 - name: Install Zenmap
   become: yes
   apt:
-    name: "/root/zenmap-7.91-1.noarch.deb"
+    deb: "/root/zenmap-7.91-1.noarch.deb"
     state: present
 
