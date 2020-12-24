@@ -23,7 +23,7 @@
   apt:
     name: "{{ item }}"
     state: present
-  loop: "{{ pkgs }}
+  loop: "{{ pkgs }}"
   become: yes
 
 - name: Create xrdp group
@@ -47,7 +47,7 @@
   become: yes
   get_url:
     url: "https://nmap.org/dist/zenmap-7.91-1.noarch.rpm"
-    dest: /root/zenmap-7.91-1.noarch.rpm
+    dest: "/root/zenmap-7.91-1.noarch.rpm"
     mode: 0600
 
 - name: Convert RPM to Deb
