@@ -53,6 +53,7 @@
 - name: Convert RPM to Deb
   become: yes
   command: alien /root/zenmap-7.91-1.noarch.rpm
+  args:
     chdir: "/root"
 
 - name: Install Zenmap
