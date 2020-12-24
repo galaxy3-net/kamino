@@ -67,6 +67,6 @@
 - name: Install Zenmap
   become: yes
   apt:
-    deb: "/root/zenmap-7.91-1.noarch.deb"
+    deb: "/root/zenmap_7.91-2_all.deb"
     state: present
 
