@@ -21,8 +21,9 @@
 
 - name: Install XRDP
   apt:
-    name: xrdp
+    name: "{{ item }}"
     state: present
+  loop: "{{ pkgs }}
   become: yes
 
 - name: Create xrdp group
@@ -41,3 +42,22 @@
   service:
     name: xrdp
     state: started
+
+- name: Download Zenmap
+  become: yes
+  gwt_url:
+    url: https://nmap.org/dist/zenmap-7.91-1.noarch.rpm
+    dest: /root/zenmap-7.91-1.noarch.rpm
+    mode: 0600
+
+- name: Convert RPM to Deb
+  become: yes
+  command: alien /root/zenmap-7.91-1.noarch.rpm
+  chdir: /root
+
+- name: Install Zenmap
+  become: yes
+  apt:
+    name: /root/zenmap-7.91-1.noarch.deb
+    state: present
+
