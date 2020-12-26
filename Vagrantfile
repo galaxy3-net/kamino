@@ -54,6 +54,7 @@ Vagrant.configure("2") do |config|
     vb.memory = "8192"
     #vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
 
+    vb.customize ['modifyvm', :id, '--nic0', 'intnet']
     vb.customize ['modifyvm', :id, '--nicpromisc0', 'allow-all']
     vb.customize ['modifyvm', :id, '--nictype0', 'virtio']
     vb.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
