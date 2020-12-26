@@ -10,8 +10,8 @@ Vagrant.configure("2") do |config|
   config.vm.box_version = "2020.4.0"
 
   config.vm.network "private_network", ip: "10.55.55.9",
-  	virtualbox__intnet: "g3main,
-  	nic_type: "virtio""
+  	virtualbox__intnet: "g3main",
+  	nic_type: "virtio"
   config.vm.network "private_network", ip: "10.55.56.9",
   	virtualbox__intnet: "metasploitable3",
   	nic_type: "virtio"
