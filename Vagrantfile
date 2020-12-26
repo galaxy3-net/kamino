@@ -10,11 +10,9 @@ Vagrant.configure("2") do |config|
   config.vm.box_version = "2020.4.0"
 
   config.vm.network "private_network", ip: "10.55.55.9",
-  	virtualbox__intnet: "g3main",
-  	nic_type: "virtio"
+  	virtualbox__intnet: "g3main"
   config.vm.network "private_network", ip: "10.55.56.9",
-  	virtualbox__intnet: "metasploitable3",
-  	nic_type: "virtio"
+  	virtualbox__intnet: "metasploitable3"
   #config.vm.network "private_network", ip: "10.55.55.4"
 
   config.vbguest.auto_update = false
@@ -59,14 +57,13 @@ Vagrant.configure("2") do |config|
     vb.memory = "8192"
     #vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
 
-#    vb.customize ['modifyvm', :id, '--nic0', 'intnet']
-#    vb.customize ['modifyvm', :id, '--nicpromisc0', 'allow-all']
-#    vb.customize ['modifyvm', :id, '--nictype0', 'virtio']
-#    vb.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
-#    vb.customize ['modifyvm', :id, '--nictype1', 'virtio']
-#    vb.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
-#    vb.customize ['modifyvm', :id, '--nictype2', 'virtio']
-#    vb.customize ['modifyvm', :id, '--nicpromisc2', 'allow-all']
+    vb.customize ['modifyvm', :id, '--nicpromisc0', 'allow-all']
+    vb.customize ['modifyvm', :id, '--nictype0', 'virtio']
+    vb.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
+    vb.customize ['modifyvm', :id, '--nictype1', 'virtio']
+    vb.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
+    vb.customize ['modifyvm', :id, '--nictype2', 'virtio']
+    vb.customize ['modifyvm', :id, '--nicpromisc2', 'allow-all']
 
   end
   config.vm.provision "shell", inline: <<-SHELL
