@@ -9,7 +9,7 @@ Restart=always
 RestartSec=1
 #User=serviceuser
 ExecStartPre=docker pull vulnerables/web-dvwa:latest
-ExecStart=docker run -d --restart="always" --name dvwa	-p 10.55.56.10:80:80/tcp vulnerables/web-dvwa:latest
+ExecStart=docker run -d --name dvwa	-p 10.55.56.10:80:80/tcp vulnerables/web-dvwa:latest || docker start dvwa
 ExecStartPost=
 ExecStop=
 ExecReload=
