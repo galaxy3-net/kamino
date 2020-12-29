@@ -11,8 +11,8 @@ pkgs:
 #  - net-tools
 #  - dos2unix
 #  - supervisor
-#  - htop
-#  - kali-linux-everything
+  - htop
+  - kali-linux-everything
   - docker
   - docker.io
   - alien
