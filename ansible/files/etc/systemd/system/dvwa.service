@@ -1,5 +1,5 @@
 [Unit]
-Description=Example Service
+Description=DVWA Service
 After=network.target
 StartLimitIntervalSec=0
 
@@ -10,7 +10,7 @@ RestartSec=1
 #User=serviceuser
 ExecStartPre=
 ExecStart=/usr/local/bin/dvwa
-ExecStartPost
+ExecStartPost=
 ExecStop=
 ExecReload=
 
