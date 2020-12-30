@@ -5,7 +5,7 @@ StartLimitIntervalSec=0
 
 [Service]
 Type=simple
-Restart=always
+Restart=never
 RestartSec=1
 User=root
 ExecStartPre=
