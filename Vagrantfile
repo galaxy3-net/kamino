@@ -5,12 +5,11 @@ thedr_userid = "2001"
 thedr_groupid = "2001"
 
 Vagrant.configure("2") do |config|
-  #config.vm.box = "galaxy3/kamino"
-  #config.vm.box_version = "2021.01.05-0000"
-  config.vm.box = "kalilinux/rolling"
+  config.vm.box = "galaxy3/kamino"
+  config.vm.box_version = "2021.01.05-0000"
   config.vm.hostname = "kamino"
-  config.vm.box_version = "2020.4.0"
-  # config.disksize.size = '75GB'
+#  config.vm.box = "kalilinux/rolling"
+#  config.vm.box_version = "2020.4.0"
 
   config.vm.network "private_network", ip: "10.55.55.4",
   	virtualbox__intnet: "g3main"
@@ -18,10 +17,8 @@ Vagrant.configure("2") do |config|
   	virtualbox__intnet: "metasploitable3"
   config.vm.network "private_network", ip: "10.55.56.10",
   	virtualbox__intnet: "metasploitable3"
-  #config.vm.network "private_network", ip: "10.55.55.4"
 
   config.vbguest.auto_update = false
-
   config.ssh.insert_key = false
   config.ssh.connect_timeout = 20
 
@@ -43,11 +40,11 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 80, host: 24080, host_ip: "127.0.0.1", auto_correct: true
   config.vm.network "forwarded_port", guest: 8080, host: 24880, host_ip: "127.0.0.1", auto_correct: true
 
-  config.vm.provision "file", source: "playbook.yml", destination: "playbook.yml"
-  config.vm.provision "file", source: "../../functions", destination: "functions/bin"
-  config.vm.provision "file", source: "hosts", destination: "hosts"
-  config.vm.provision "file", source: "requirements.yml", destination: "requirements.yml"
-  config.vm.provision "file", source: "ansible", destination: "roles/ansible"
+#  config.vm.provision "file", source: "playbook.yml", destination: "playbook.yml"
+#  config.vm.provision "file", source: "../../functions", destination: "functions/bin"
+#  config.vm.provision "file", source: "hosts", destination: "hosts"
+#  config.vm.provision "file", source: "requirements.yml", destination: "requirements.yml"
+#  config.vm.provision "file", source: "ansible", destination: "roles/ansible"
 
   config.vm.provider "virtualbox" do |vb|
     # Display the VirtualBox GUI when booting the machine
@@ -56,37 +53,28 @@ Vagrant.configure("2") do |config|
     # vb.memory = "1024" # 1Gb
     # vb.memory = "2048" # 2Gb
     # vb.memory = "4096" # 4Gb
-    vb.name = "Kamino (Kali)"
+    vb.name = "Kamino (Kali Linux)"
     vb.gui = false
-    vb.cpus = "4"
-    vb.memory = "8192"
-    #vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
 
     vb.customize ['modifyvm', :id, '--nicpromisc0', 'allow-all']
-    vb.customize ['modifyvm', :id, '--nictype0', 'virtio']
     vb.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
-    vb.customize ['modifyvm', :id, '--nictype1', 'virtio']
-    vb.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
-    vb.customize ['modifyvm', :id, '--nictype2', 'virtio']
-    vb.customize ['modifyvm', :id, '--nicpromisc2', 'allow-all']
-
   end
-  config.vm.provision "shell", inline: <<-SHELL
-     tr -d '\r' < /vagrant/functions/ready >/usr/local/bin/ready && chmod 0700 /usr/local/bin/ready
-     /usr/local/bin/ready
-     #/usr/local/bin/install_pkgs
-     #/usr/local/bin/pull_repos
-     #iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-     #iptables -A INPUT -p tcp --dport 3389 -m
-   #config.vm.provision "shell", inline: <<-SHELL state --state NEW -j ACCEPT
+#  config.vm.provision "shell", inline: <<-SHELL
+#     tr -d '\r' < /vagrant/functions/ready >/usr/local/bin/ready && chmod 0700 /usr/local/bin/ready
+#     /usr/local/bin/ready
+#     #/usr/local/bin/install_pkgs
+#     #/usr/local/bin/pull_repos
+#     #iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+#     #iptables -A INPUT -p tcp --dport 3389 -m
+#   #config.vm.provision "shell", inline: <<-SHELL state --state NEW -j ACCEPT
 
-    # setup_xrdp
-    # setup_vnc
-    ls -l /home/vagrant
-SHELL
-  config.vm.provision "ansible_local" do |ansible|
-    ansible.playbook = "/home/vagrant/playbook.yml"
-    ansible.galaxy_role_file = "/home/vagrant/requirements.yml"
-    inventory_path = "/home/vagrant/hosts"
-  end
+#    # setup_xrdp
+#    # setup_vnc
+#    ls -l /home/vagrant
+#SHELL
+#  config.vm.provision "ansible_local" do |ansible|
+#    ansible.playbook = "/home/vagrant/playbook.yml"
+#    ansible.galaxy_role_file = "/home/vagrant/requirements.yml"
+#    inventory_path = "/home/vagrant/hosts"
+#  end
 end

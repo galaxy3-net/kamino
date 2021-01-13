@@ -16,4 +16,4 @@
 .idea/
 *.iml
 .vagrant/
-/package.box
+/*.box
