@@ -1,8 +1,8 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-thedr_userid = "2001"
-thedr_groupid = "2001"
+thedr_userid = "1001"
+thedr_groupid = "1001"
 
 Vagrant.configure("2") do |config|
   config.vm.box = "galaxy3/kamino"
