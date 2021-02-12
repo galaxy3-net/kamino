@@ -62,13 +62,6 @@ Vagrant.configure("2") do |config|
     vb.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
   end
 
-  $script = <<-SCRIPT
-  echo I am provisioning...
-  date
-SCRIPT
-
-    config.vm.provision "shell", inline: $script
-
 #  config.vm.provision "shell", inline: <<-SHELL
 #     tr -d '\r' < /vagrant/functions/ready >/usr/local/bin/ready && chmod 0700 /usr/local/bin/ready
 #     /usr/local/bin/ready
