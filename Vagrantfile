@@ -57,9 +57,6 @@ Vagrant.configure("2") do |config|
     #vb.name = "Kamino (Kali Linux)"
     vb.name = "#{ENV['boxname']} (Kali Linux)"
     vb.gui = false
-
-    vb.customize ['modifyvm', :id, '--nicpromisc0', 'allow-all']
-    vb.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
   end
 
 #  config.vm.provision "shell", inline: <<-SHELL
