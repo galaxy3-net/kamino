@@ -1,8 +1,8 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-thedr_userid = "2001"
-thedr_groupid = "2001"
+thedr_userid = "1001"
+thedr_groupid = "1001"
 
 Vagrant.configure("2") do |config|
   config.vm.box = "galaxy3/kamino"
@@ -25,7 +25,8 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder	"../../bind",	"/bind", owner: thedr_userid, group: thedr_groupid, create: true
   config.vm.synced_folder	"../../",	"/vagrant", owner: thedr_userid, group: thedr_groupid
   config.vm.synced_folder "../../repos", "/repos", owner: thedr_userid, group: thedr_groupid, create: true
-  config.vm.synced_folder "../../Downloads", "/Downloads", owner: thedr_userid, group: thedr_groupid, create: true
+ # config.vm.synced_folder "../../Downloads", "/Downloads", owner: thedr_userid, group: thedr_groupid, create: true
+  config.vm.synced_folder "../../Downloads", "/Downloads", owner: "1001", group: "1001", mount_options: ["fmode=777", "dmode=777"], create: true
 
 #  config.vm.synced_folder	"../../",	"/vagrant", owner: "2001", group: "2001"
 #  config.vm.synced_folder "../../repos", "/repos", owner: "2001", group: "2001", create: true
