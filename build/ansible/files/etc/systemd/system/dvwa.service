@@ -1,0 +1,11 @@
+[Unit]
+Description=DVWA Service
+After=network.target
+
+[Service]
+Type=simple
+Restart=on-failure
+ExecStart=/usr/sbin/dvwa
+
+[Install]
+WantedBy=multi-user.target
