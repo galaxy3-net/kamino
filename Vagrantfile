@@ -54,8 +54,7 @@ Vagrant.configure("2") do |config|
     # vb.memory = "1024" # 1Gb
     # vb.memory = "2048" # 2Gb
     # vb.memory = "4096" # 4Gb
-    #vb.name = "Kamino (Kali Linux)"
-    vb.name = "Kamino"
+    vb.name = "Kamino (Kali Linux)"
     vb.gui = false
   end
 
