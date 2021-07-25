@@ -28,6 +28,7 @@ Vagrant.configure("2") do |config|
  # config.vm.synced_folder "../../Downloads", "/Downloads", owner: thedr_userid, group: thedr_groupid, create: true
  # config.vm.synced_folder "../../Downloads", "/Downloads", owner: "1001", group: "1001", mount_options: ["fmode=777", "dmode=777"], create: false
   config.vm.synced_folder "../../Downloads", "/Downloads"
+  config.vm.synced_folder "../../Dummy", "/Dummy"
 
 #  config.vm.synced_folder	"../../",	"/vagrant", owner: "2001", group: "2001"
 #  config.vm.synced_folder "../../repos", "/repos", owner: "2001", group: "2001", create: true
