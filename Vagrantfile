@@ -58,7 +58,9 @@ Vagrant.configure("2") do |config|
     vb.gui = false
   end
 
-#  config.vm.provision "shell", inline: <<-SHELL
+  config.vm.provision "shell", inline: <<-SHELL
+  sudo mkdir -p /Downloads
+  sudo /sbin/mount.vboxsf Downloads /Downloads
 #     tr -d '\r' < /vagrant/functions/ready >/usr/local/bin/ready && chmod 0700 /usr/local/bin/ready
 #     /usr/local/bin/ready
 #     #/usr/local/bin/install_pkgs
@@ -70,7 +72,7 @@ Vagrant.configure("2") do |config|
 #    # setup_xrdp
 #    # setup_vnc
 #    ls -l /home/vagrant
-#SHELL
+SHELL
 #  config.vm.provision "ansible_local" do |ansible|
 #    ansible.playbook = "/home/vagrant/playbook.yml"
 #    ansible.galaxy_role_file = "/home/vagrant/requirements.yml"
