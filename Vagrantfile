@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
 #  config.vm.box_version = "2020.4.0"
 
 #  config.vm.network "private_network", ip: "10.55.55.4",
-  config.vm.network "private_network", type: :DHCP,
+  config.vm.network "private_network", type: "dhcp",
     mac: "080027aaaaaa",
   	virtualbox__intnet: "g3main"
   config.vm.network "private_network", ip: "10.55.56.4",
