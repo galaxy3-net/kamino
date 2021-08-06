@@ -12,15 +12,15 @@ Vagrant.configure("2") do |config|
 #  config.vm.box_version = "2020.4.0"
 
   config.vm.network "private_network", type: "dhcp",
-    mac: "080027aaaaaa",
+    mac: "080027373704",
   	virtualbox__intnet: "g3main"
 
   config.vm.network "private_network", type: "dhcp",
-    mac: "080027aaaaab",
+    mac: "080027373804",
   	virtualbox__intnet: "metasploitable3"
 
   config.vm.network "private_network", type: "dhcp",
-    mac: "080027aaaaac",
+    mac: "08002737380A",
   	virtualbox__intnet: "metasploitable3"
 
   config.vbguest.auto_update = false
