@@ -11,11 +11,6 @@ Vagrant.configure("2") do |config|
 #  config.vm.box = "kalilinux/rolling"
 #  config.vm.box_version = "2020.4.0"
 
-  config.vm.network "forwarded_port", guest: 5901, host: 28901, host_ip: "0.0.0.0", auto_correct: true
-  config.vm.network "forwarded_port", guest: 5800, host: 28800, host_ip: "0.0.0.0", auto_correct: true
-  config.vm.network "forwarded_port", guest: 8080, host: 28880, host_ip: "0.0.0.0", auto_correct: true
-  config.vm.network "forwarded_port", guest: 5900, host: 28900, host_ip: "0.0.0.0", auto_correct: true
-
   config.vm.network "private_network", type: "dhcp",
     mac: "080027373704",
   	virtualbox__intnet: "g3main"
