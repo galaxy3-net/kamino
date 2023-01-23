@@ -30,7 +30,8 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder	"../../bind",	"/bind", owner: thedr_userid, group: thedr_groupid, create: true
   config.vm.synced_folder	"../../",	"/vagrant", owner: thedr_userid, group: thedr_groupid
   config.vm.synced_folder "../../repos", "/repos", owner: thedr_userid, group: thedr_groupid, create: true
-  config.vm.synced_folder "../../Downloads", "/home/vagrant/Downloads", owner: thedr_userid, group: thedr_groupid, create: true
+  #config.vm.synced_folder "../../Downloads", "/home/vagrant/Downloads", owner: thedr_userid, group: thedr_groupid, create: true
+  config.vm.synced_folder "../../Downloads", "/Downloads", owner: "1001", group: "1001", mount_options: ["fmode=777", "dmode=777"], create: true
  # config.vm.synced_folder "../../Downloads", "/Downloads", owner: "1001", group: "1001", mount_options: ["fmode=777", "dmode=777"], create: false
 
 #  config.vm.synced_folder	"../../",	"/vagrant", owner: "2001", group: "2001"
@@ -63,9 +64,9 @@ Vagrant.configure("2") do |config|
     vb.gui = false
   end
 
-  config.vm.provision "shell", inline: <<-SHELL
-  sudo mkdir -p /Downloads
-  sudo /sbin/mount.vboxsf Downloads /Downloads
+#  config.vm.provision "shell", inline: <<-SHELL
+#  sudo mkdir -p /Downloads
+#  sudo /sbin/mount.vboxsf Downloads /Downloads
 #     tr -d '\r' < /vagrant/functions/ready >/usr/local/bin/ready && chmod 0700 /usr/local/bin/ready
 #     /usr/local/bin/ready
 #     #/usr/local/bin/install_pkgs
@@ -77,7 +78,7 @@ Vagrant.configure("2") do |config|
 #    # setup_xrdp
 #    # setup_vnc
 #    ls -l /home/vagrant
-SHELL
+#SHELL
 #  config.vm.provision "ansible_local" do |ansible|
 #    ansible.playbook = "/home/vagrant/playbook.yml"
 #    ansible.galaxy_role_file = "/home/vagrant/requirements.yml"
